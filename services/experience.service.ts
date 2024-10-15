@@ -5,7 +5,7 @@ class ExperienceService {
     console.log("in request");
     const index = melisearchClient.index("experience");
 
-    return index.search("", {
+    const res = await index.search("", {
       attributesToRetrieve: [
         "id",
         "title",
@@ -16,6 +16,7 @@ class ExperienceService {
       filter: `id = "${id}"`,
       limit: 1, // Since we are looking for a specific ID
     });
+    return res.hits[0];
   }
 }
 
