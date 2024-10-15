@@ -1,0 +1,8 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.yoliday.experience",
+      "sha256_cert_fingerprints":["12:3F:65:F1:61:34:3C:39:90:CE:55:E8:82:E0:FB:48:5E:9E:45:42:05:D4:8C:3C:F4:1D:57:7D:F2:C7:95:6A"]
+    }
+  }]
