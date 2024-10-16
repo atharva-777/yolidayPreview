@@ -2,7 +2,6 @@ import melisearchClient from "./meilisearch";
 
 class ExperienceService {
   static async getExperienceById({ id }: { id: string }) {
-    console.log("in request");
     const index = melisearchClient.index("experience");
 
     const res = await index.search("", {

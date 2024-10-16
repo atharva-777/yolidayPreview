@@ -26,7 +26,7 @@ export async function generateMetadata({
           url: experience.medias[0]?.uid
             ? `https://media.dev.yoliday.in/${experience.medias[0].uid}`
             : "",
-          width: 800,
+          width: 720,
           height: 600,
           alt: "Experience Image",
         },
@@ -53,7 +53,6 @@ const ExperiencePage = async ({ params }: { params: { id: string } }) => {
   const experience = await ExperienceService.getExperienceById({
     id,
   });
-  console.log("experience", experience);
 
   return (
     <main className="min-h-screen bg-gray-100 p-6">
