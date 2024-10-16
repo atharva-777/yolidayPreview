@@ -8,9 +8,9 @@ import ExperienceService from "@/services/experience.service";
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string };
+  params: { id: string; itineraryId: string };
 }): Promise<Metadata> {
-  const { id } = params;
+  const { id, itineraryId } = params;
   const experience = await ExperienceService.getExperienceById({
     id,
   });
@@ -20,7 +20,7 @@ export async function generateMetadata({
     openGraph: {
       title: experience.title,
       description: experience.description,
-      url: `${process.env.NEXT_PUBLIC_URL}/experience/${id}`,
+      url: `${process.env.NEXT_PUBLIC_URL}/experience/${id}/${itineraryId}`,
       images: [
         {
           url: experience.medias[0]?.uid
@@ -48,8 +48,12 @@ export async function generateMetadata({
   };
 }
 
-const ExperiencePage = async ({ params }: { params: { id: string } }) => {
-  const { id } = params;
+const ItineraryPage = async ({
+  params,
+}: {
+  params: { id: string; itineraryId: string };
+}) => {
+  const { id, itineraryId } = params;
   const experience = await ExperienceService.getExperienceById({
     id,
   });
@@ -65,7 +69,7 @@ const ExperiencePage = async ({ params }: { params: { id: string } }) => {
         />
         <meta
           property="og:url"
-          content={`${process.env.NEXT_PUBLIC_URL}/experience/${id}`}
+          content={`${process.env.NEXT_PUBLIC_URL}/experience/${id}/${itineraryId}`}
         />
         <meta property="og:type" content="website" />
         <meta
@@ -85,4 +89,4 @@ const ExperiencePage = async ({ params }: { params: { id: string } }) => {
   );
 };
 
-export default ExperiencePage;
+export default ItineraryPage;
