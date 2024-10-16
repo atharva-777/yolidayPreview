@@ -24,7 +24,7 @@ export async function generateMetadata({
       images: [
         {
           url: experience.medias[0]?.uid
-            ? `https://media.dev.yoliday.in/${experience.medias[0].uid}`
+            ? `${process.env.NEXT_PUBLIC_MEDIA_URL}/${experience.medias[0].uid}`
             : "",
           width: 720,
           height: 600,
@@ -40,7 +40,7 @@ export async function generateMetadata({
       images: [
         {
           url: experience.medias[0]?.uid
-            ? `https://media.dev.yoliday.in/${experience.medias[0].uid}`
+            ? `${process.env.NEXT_PUBLIC_MEDIA_URL}/${experience.medias[0].uid}`
             : "",
         },
       ],
@@ -61,7 +61,7 @@ const ExperiencePage = async ({ params }: { params: { id: string } }) => {
         <meta property="og:description" content={experience.description} />
         <meta
           property="og:image"
-          content={`https://media.dev.yoliday.in/${experience.medias[0].uid}`}
+          content={`${process.env.NEXT_PUBLIC_MEDIA_URL}/${experience.medias[0].uid}`}
         />
         <meta
           property="og:url"
@@ -70,13 +70,13 @@ const ExperiencePage = async ({ params }: { params: { id: string } }) => {
         <meta property="og:type" content="website" />
         <meta
           name="twitter:card"
-          content={`https://media.dev.yoliday.in/${experience.medias[0].uid}`}
+          content={`${process.env.NEXT_PUBLIC_MEDIA_URL}/${experience.medias[0].uid}`}
         />
         <meta name="twitter:title" content={experience.title} />
         <meta name="twitter:description" content={experience.description} />
         <meta
           name="twitter:image"
-          content={`https://media.dev.yoliday.in/${experience.medias[0].uid}`}
+          content={`${process.env.NEXT_PUBLIC_MEDIA_URL}/${experience.medias[0].uid}`}
         />
         <title> Itinerary</title>
       </Head>
